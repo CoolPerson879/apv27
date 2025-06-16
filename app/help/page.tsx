@@ -1,11 +1,31 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
-import { MessageCircle, Mail, Phone, Clock, HelpCircle, BookOpen, Users, Target } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+import {
+  MessageCircle,
+  Mail,
+  Phone,
+  Clock,
+  HelpCircle,
+  BookOpen,
+  Users,
+  Target,
+} from "lucide-react";
 
 const faqs = [
   {
@@ -50,30 +70,34 @@ const faqs = [
       "Aim for 30-60 minutes of focused study daily. This should include reading, note-taking, practice questions, and review. Consistency is more important than cramming. Increase study time as the exam approaches.",
     category: "Study Tips",
   },
-]
+];
 
 const studyTips = [
   {
     icon: BookOpen,
     title: "Active Reading",
-    description: "Take notes while reading, create timelines, and summarize key concepts in your own words.",
+    description:
+      "Take notes while reading, create timelines, and summarize key concepts in your own words.",
   },
   {
     icon: Target,
     title: "Practice Essays",
-    description: "Write practice DBQs and LEQs regularly. Focus on thesis development and evidence usage.",
+    description:
+      "Write practice DBQs and LEQs regularly. Focus on thesis development and evidence usage.",
   },
   {
     icon: Users,
     title: "Study Groups",
-    description: "Form study groups to discuss concepts, quiz each other, and share different perspectives.",
+    description:
+      "Form study groups to discuss concepts, quiz each other, and share different perspectives.",
   },
   {
     icon: Clock,
     title: "Time Management",
-    description: "Practice with timed conditions to build stamina and improve pacing for the actual exam.",
+    description:
+      "Practice with timed conditions to build stamina and improve pacing for the actual exam.",
   },
-]
+];
 
 export default function HelpPage() {
   return (
@@ -81,7 +105,8 @@ export default function HelpPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Help & Support</h1>
         <p className="text-lg text-muted-foreground">
-          Get answers to common questions, study tips, and contact information for additional support.
+          Get answers to common questions, study tips, and contact information
+          for additional support.
         </p>
       </div>
 
@@ -90,9 +115,12 @@ export default function HelpPage() {
         <h2 className="text-2xl font-bold mb-6">Quick Help</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {studyTips.map((tip, index) => {
-            const IconComponent = tip.icon
+            const IconComponent = tip.icon;
             return (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="mx-auto p-3 bg-primary/10 rounded-lg w-fit">
                     <IconComponent className="h-6 w-6 text-primary" />
@@ -100,10 +128,12 @@ export default function HelpPage() {
                   <CardTitle className="text-lg">{tip.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{tip.description}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {tip.description}
+                  </p>
                 </CardContent>
               </Card>
-            )
+            );
           })}
         </div>
       </section>
@@ -115,7 +145,11 @@ export default function HelpPage() {
           <CardContent className="p-0">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq) => (
-                <AccordionItem key={faq.id} value={`item-${faq.id}`} className="px-6">
+                <AccordionItem
+                  key={faq.id}
+                  value={`item-${faq.id}`}
+                  className="px-6"
+                >
                   <AccordionTrigger className="text-left">
                     <div className="flex items-center gap-3">
                       <HelpCircle className="h-4 w-4 text-primary flex-shrink-0" />
@@ -125,107 +159,14 @@ export default function HelpPage() {
                       </Badge>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pl-7">{faq.answer}</AccordionContent>
+                  <AccordionContent className="text-muted-foreground pl-7">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </CardContent>
         </Card>
-      </section>
-
-      {/* Contact Form */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Contact Support</h2>
-        <div className="grid lg:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
-              <CardDescription>
-                Have a question that's not answered in our FAQ? Send us a message and we'll get back to you.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="What's your question about?" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Describe your question or issue in detail..." rows={5} />
-                </div>
-                <Button type="submit" className="w-full">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5" />
-                  Live Chat
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Chat with our support team in real-time for immediate assistance.
-                </p>
-                <Button className="w-full">Start Live Chat</Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  Phone Support
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-2">Call us during business hours:</p>
-                <p className="font-semibold mb-2">1-800-AP-WORLD</p>
-                <div className="text-sm text-muted-foreground">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM EST</p>
-                  <p>Sunday: Closed</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Email Support
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Send us an email and we'll respond within 24 hours:
-                </p>
-                <p className="font-semibold">support@apworldprep.com</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
       </section>
 
       {/* Study Resources */}
@@ -235,24 +176,29 @@ export default function HelpPage() {
           <CardContent className="p-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-3">Recommended Study Schedule</h4>
+                <h4 className="font-semibold mb-3">
+                  Recommended Study Schedule
+                </h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                     <span>
-                      <strong>September-December:</strong> Focus on Periods 1-3, build foundational knowledge
+                      <strong>September-December:</strong> Focus on Periods 1-3,
+                      build foundational knowledge
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                     <span>
-                      <strong>January-March:</strong> Cover Periods 4-6, practice essay writing
+                      <strong>January-March:</strong> Cover Periods 4-6,
+                      practice essay writing
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2" />
                     <span>
-                      <strong>April-May:</strong> Intensive review, practice exams, final preparation
+                      <strong>April-May:</strong> Intensive review, practice
+                      exams, final preparation
                     </span>
                   </li>
                 </ul>
@@ -262,19 +208,29 @@ export default function HelpPage() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <span>Focus on major themes and patterns rather than memorizing details</span>
+                    <span>
+                      Focus on major themes and patterns rather than memorizing
+                      details
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <span>Practice essay outlines even if you don't write full essays</span>
+                    <span>
+                      Practice essay outlines even if you don't write full
+                      essays
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <span>Use mnemonics and acronyms to remember key information</span>
+                    <span>
+                      Use mnemonics and acronyms to remember key information
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2" />
-                    <span>Get plenty of sleep before the exam - don't cram all night</span>
+                    <span>
+                      Get plenty of sleep before the exam - don't cram all night
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -283,5 +239,5 @@ export default function HelpPage() {
         </Card>
       </section>
     </div>
-  )
+  );
 }
